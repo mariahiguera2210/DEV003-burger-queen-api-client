@@ -1,4 +1,5 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
 
 function Login() {
   return (
@@ -8,6 +9,7 @@ function Login() {
     <div>
     <input type="text" placeholder="Contraseña"></input>
     </div>
+    <Button size="lg" variant="danger">Iniciar Sesión</Button>
     </div>
   );
 }
