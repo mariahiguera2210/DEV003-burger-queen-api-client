@@ -11,8 +11,8 @@ function Login() {
     <Container>
       <Row>
         <Col>
-        <div>
-          <h1>Burger Queen</h1>
+        <div className="titulo">
+          <h1 className="mb-5">Burger Queen</h1>
         </div>
       <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
