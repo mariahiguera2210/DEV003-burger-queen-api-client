@@ -6,13 +6,22 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useForm } from 'react-hook-form';
+import { users } from '../data/users.json';
 
 function Login() {
   const { register, handleSubmit, formState :{errors}} = useForm({ mode: "onChange"});
   
-
   const onSubmit = evento => {
     console.log(evento)
+        // lógica de autenticación
+        const emailUser = users.filter(user => user.email === evento.email);
+        const passwordUser = users.filter(user => user.password === evento.password);
+        if (emailUser && passwordUser) {
+          console.log('Inicio sesión exitoso'); 
+        } else {
+            console.log('Usuario Inválido');
+        }
+    return onSubmit;
   } 
   const messages = {
     req: "Este campo es obligatorio",
@@ -22,7 +31,7 @@ function Login() {
 
    const patterns = {
     email :/^[a-zA-Z0-9.!#$%&`*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 
-    password: /^[0-9]+$/i,
+    password: /^[a-zA-Z0-9-]+$/i,
    }
    
 
