@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col';
 import { useForm } from 'react-hook-form';
 
 function Login() {
-  const { register, handleSubmit} = useForm({ mode: "onChange"});
+  const { register, handleSubmit, formState :{errors}} = useForm({ mode: "onChange"});
   
 
   const onSubmit = evento => {
@@ -21,7 +21,7 @@ function Login() {
    };
 
    const patterns = {
-    email : /ˆ[A-Z0-9 ._%+-]+@<A-Z0-9.-+\.[A-Z]{2,4}$/i, 
+    email :/^[a-zA-Z0-9.!#$%&`*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, 
     password: /^[0-9]+$/i,
    }
    
@@ -46,11 +46,12 @@ function Login() {
             
           })
           }/>
+           {errors.email && (<span>{errors.email.message}</span>)}
         </Form.Group>
-        
+            
         <Form.Group className="mb-3" controlId="formBasicPassword">
           {/* <Form.Label>Contraseña</Form.Label> */}
-          <Form.Control name="password" type="password" placeholder="Contraseña" {...register('password', {
+          <Form.Control name="password" type="password" autoComplete="new-password" placeholder="Contraseña" {...register('password', {
             required:messages.req,
               minLength:{
               value: 6,
@@ -67,6 +68,7 @@ function Login() {
             }
             )}
             /> 
+            {errors.password && (<span>{errors.password.message}</span>)}
         </Form.Group>
        
         <Button type='submit' size="lg" variant="danger">Iniciar Sesión</Button>
