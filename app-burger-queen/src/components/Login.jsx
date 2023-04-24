@@ -12,12 +12,16 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     AuthService.authenticate(email, password)
-      .then(() => {
-      console.log("Autenticado");
+      .then((isAuthenticated) => {
+       if(isAuthenticated){
+        console.log('Autenticado');
+       }else{
+        console.log("Usuario no existente");
+       }
       })
       .catch((error) => {
         setError(error.message);
-        console.log("Usuario no existente");
+        
       });
   };
 

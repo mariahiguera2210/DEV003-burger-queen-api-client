@@ -1,13 +1,17 @@
 class AuthService {
   static authenticate(email, password) {
-    return new Promise((resolve, reject) => {
-      // lógica de autenticación
-      if (email === "maria@burgerqueen.com" && password === "123456") {
-        resolve();
-      } else {
-        reject(new Error("Credenciales Incorrectas"));
-      }
-    });
+    return fetch('http://localhost:3000/data/users.json')
+      .then((response) => response.json())
+      .then((data) => {
+        const user = data.users.find(
+          (user) => email === user.email && password === user.password
+        );
+        if (user) {
+          return true;
+        } else {
+          return false;
+        }
+      });
   }
 }
 

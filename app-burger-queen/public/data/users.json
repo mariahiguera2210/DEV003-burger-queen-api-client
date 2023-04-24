@@ -5,21 +5,21 @@
       "name": "María Higuera",
       "username": "María",
       "email": "maria@burgerqueen.com",
-      "password": 123456
+      "password": "123456"
     },
     {
       "id": 2,
       "name": "Andry Salazar",
       "username": "Andry",
       "email": "andryS@burgerqueen.com",
-      "password": 1234567
+      "password": "1234567"
     },
     {
       "id": 3,
       "name": "Sara Sierra",
       "username": "Sara",
       "email": "Sara@burgerqueen.com",
-      "password": 12345678
+      "password": "12345678"
     }
   ]
 }
