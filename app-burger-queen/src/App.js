@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
 import Login from './components/Login.jsx';
-// import Menu from './components/Menu.jsx';
+import Menu from './components/Menu.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <main className="App-main">
  
          <Login />
-          {/* <Menu/> */}
+          <Menu/> 
        
         {/* <img src={logo} className="App-logo" alt="logo" />
         <p>

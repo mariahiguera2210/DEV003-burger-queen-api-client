@@ -1,101 +1,113 @@
-{ 
-    "products": [
+{ "products": {
+  "menu": [
+      {
+          "id": 7450,
+          "name": "Café americano",
+          "description": "Bebida hecha con café expreso y agua caliente",
+          "price": "$5.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Desayuno",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
         {
-            "id": 7450,
-            "name": "Café americano",
-            "price": 500,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Desayuno",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 7456,
-            "name": "Café con leche",
-            "price": 700,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Desayuno",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
+          "id": 7456,
+          "name": "Café con leche",
+          "description": "Es una bebida suave y cremosa que combina el sabor fuerte del café expreso con la dulzura natural de la leche. ",
+          "price": "$7.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Desayuno",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+      {
+          "id": 1214,
+          "name": "Sandwich de jamón y queso",
+          "description": "El sándwich combina el sabor salado del jamón con la cremosidad del queso en un sándwich caliente y reconfortante",
+          "price": "$10.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/sandwich.jpg",
+          "type": "Desayuno",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
         {
-            "id": 1214,
-            "name": "Sandwich de jamón y queso",
-            "price": 1000,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/sandwich.jpg",
-            "type": "Desayuno",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 1234,
-            "name": "Jugos de frutas natural",
-            "price": 700,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Desayuno",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 3456,
-            "name": "Hamburguesa simple",
-            "price": 10,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 3457,
-            "name": "Hamburguesa doble",
-            "price": 15,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 3446,
-            "name": "Papas fritas",
-            "price": 5,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 1446,
-            "name": "Aros de cebolla",
-            "price": 5,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 3846,
-            "name": "Agua 500ml",
-            "price": 5,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 3496,
-            "name": "Agua 700ml",
-            "price": 7,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 3866,
-            "name": "Gaseosa 500ml",
-            "price": 7,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          },
-          {
-            "id": 9779,
-            "name": "Gaseosa 750ml",
-            "price": 10,
-            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
-            "type": "Almuerzo",
-            "dateEntry": "2022-03-05 15:14:10"
-          }
-    ]
-    
+          "id": 1234,
+          "name": "Jugos de frutas natural",
+          "description": "El jugo de frutas natural es una bebida saludable y refrescante que se prepara a partir de frutas frescas.",
+          "price": "$7.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Desayuno",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 3456,
+          "name": "Hamburguesa simple",
+          "description": "Es una hamburguesa básica que consta de un pan de hamburguesa, carne de res, lechuga, tomate, cebolla y salsa",
+          "price": "$10.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 3457,
+          "name": "Hamburguesa doble",
+          "description": "La hamburguesa doble consta de dos carnes de res apiladas entre dos panes de hamburguesa.",
+          "price": "$15.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 3446,
+          "name": "Papas fritas",
+          "description": "las papas fritas consisten en rodajas de papas crujientes y doradas que se fríen en aceite caliente",
+          "price": "$5.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 1446,
+          "name": "Aros de cebolla",
+          "description": "Consiste en anillos de cebolla empanizados y fritos. Tienen un sabor dulce y suave de cebolla.",
+          "price": "$5.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 3846,
+          "name": "Agua 500ml",
+          "description": "Agua de 500ml con hielo",
+          "price": "$5.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 3496,
+          "name": "Agua 700ml",
+          "description": "Agua de 700ml con hielo",
+          "price": "$7.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 3866,
+          "name": "Gaseosa 500ml",
+          "description": "Gaseosa de 500ml con hielo",
+          "price": "$7.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 9779,
+          "name": "Gaseosa 750ml",
+          "description": "Gaseosade 750ml con hielo",
+          "price": "$10.00",
+          "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/coffe.jpg",
+          "type": "Almuerzo",
+          "dateEntry": "2022-03-05 15:14:10"
+        }
+  ]
+}
 }
