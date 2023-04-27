@@ -5,7 +5,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { AiOutlineEdit } from 'react-icons/ai';
 import Button from 'react-bootstrap/Button';
 
-function AdminMenu() {
+function AdminTable() {
   const [products, setProducts] = useState([])
   
   useEffect(() => {
@@ -14,8 +14,24 @@ function AdminMenu() {
       .then(data => setProducts(data.menu))
   }, [])
  
+ const handleDelete = (productId) => {
+  fetch(`http://localhost:3000/products/`, {
+    //Configura para que use el método delete
+    method: 'DELETE'
+  })
+  //la respuesta del servidor 
+  .then(response => response.json())
+  //despues de que la respuesta se convierta a json
+  .then(data => {
+    // Actualizar el estado de productos después de la eliminación
+    const updatedProducts = products.filter(item => item.id !== productId)
+    setProducts(updatedProducts) // Se actualiza el estado de productos con el nuevo arreglo
+  })
+  .catch(error => console.error(error))
+}
 
   return (
+  
     <Table striped bordered hover variant="dark">
       <thead>
         <tr>
@@ -34,7 +50,7 @@ function AdminMenu() {
           <td>{item.name}</td>
           <td>{item.type}</td>
           <td>{item.price}</td>
-          <td> <Button variant="danger"> < RiDeleteBin6Line/> Eliminar</Button></td>
+          <td> <Button variant="danger" onClick={() => handleDelete(item.id)}> < RiDeleteBin6Line/> Eliminar</Button></td>
           <td> <Button variant="primary"> <AiOutlineEdit/> Editar</Button></td>
         </tr>
 
@@ -42,7 +58,8 @@ function AdminMenu() {
 
      ))}
     </Table>
+    
 
 )}
 
-export default AdminMenu
+export default AdminTable
