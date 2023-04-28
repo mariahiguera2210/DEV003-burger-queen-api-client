@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import Input from "./Input";
 import Button from "./Button";
 import ErrorMessage from "./ErrorMessage";
 import AuthService from "./AuthService";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     AuthService.authenticate(email, password)
       .then((isAuthenticated) => {
        if(isAuthenticated){
-        console.log('Autenticado');
+       navigate("/menu");
        }else{
         console.log("Usuario no existente");
        }
