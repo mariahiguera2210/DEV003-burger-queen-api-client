@@ -8,20 +8,17 @@ import NotFound from "./components/NotFound";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from "react-router-dom";
 
+
 function App() {
   return (
-   
     <div className="App">
     <main className="App-main">
-      
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/menu" element={<Menu/>}/>
           <Route path="/pedidos" element={<Pedidos/>}/>
           <Route path="/adminMenu" element={<AdminMenu/>}/>
           <Route path="*" element={<NotFound />} />
-
-
         </Routes>
 
         </main> 
