@@ -21,7 +21,16 @@ const ProductList = () => {
   console.log(products);
 
   return (
-    <div className="container">
+    <div 
+    className="card mb-3"
+    style={{
+      maxWidth: "30rem",
+      background: "#E6AF2E",
+      borderRadius: "15px",
+      padding: "15px",
+      fontSize: "18px",
+      display: "flex" }}
+      >
       <h2>Lista de productos</h2>
       <ClientForm onChange={(name) =>{ setName(name)}}/>
       {products.map((product) => (
