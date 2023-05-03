@@ -1,8 +1,12 @@
 import React from "react";
+import ProductList from "./ProductList";
+
 const Menu = () => {
 
     return (
-        <h1>Hola soy menu</h1>
+        <div>
+        <ProductList/>
+        </div>
     )
 }
 
