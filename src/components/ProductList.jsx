@@ -1,9 +1,12 @@
 import React from 'react';
+import ClientForm from "./ClientForm";
 import { Card, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
+
 const ProductList = () => {
   const [products, setProducts] = useState([]);
+  const [name , setName] = useState([]);
 
   useEffect(() => {
     fetch('/data/products.json')
@@ -18,8 +21,9 @@ const ProductList = () => {
   console.log(products);
 
   return (
-    <div>
+    <div className="container">
       <h2>Lista de productos</h2>
+      <ClientForm onChange={(name) =>{ setName(name)}}/>
       {products.map((product) => (
         <Card key={product.id}>
           <Card.Body>
@@ -28,7 +32,8 @@ const ProductList = () => {
             <Button
               variant="primary"
               onClick={() =>
-                console.log(`Producto ${product.id} agregado al carrito`)
+                console.log(`El cliente ${name}, Producto ${product.id} agregado al carrito`)
+          
               }>
               Agregar
             </Button>
