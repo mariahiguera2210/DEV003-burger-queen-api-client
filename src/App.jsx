@@ -1,7 +1,9 @@
 import React  from "react";
 import './App.css';
 import Login from './components/Login';
-import AdminMenu from './components/AdminMenu';
+import AdminMenu from './Pages/AdminMenu';
+import AdminEmpleado from './Pages/AdminEmpleado';
+import Header from './components/Header';
 import Menu from './components/Menu';
 import Orders  from './Pages/Orders'; 
 import NotFound from "./components/NotFound";
@@ -21,12 +23,16 @@ function App() {
   // });
   return (
     <div className="App">
+      <nav>
+      <Header/>
+      </nav>
     <main className="App-main">
         <Routes>
           <Route path="/" element={<Login/>}/>
           <Route path="/menu" element={<Menu/>}/>
           <Route path="/orders" element={<Orders/>}/>
-          <Route path="/adminMenu" element={<AdminMenu/>}/>
+          <Route path="/productos" element={<AdminMenu/>}/>
+          <Route path="/empleados" element={<AdminEmpleado/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
 
