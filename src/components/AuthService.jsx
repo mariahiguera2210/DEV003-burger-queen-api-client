@@ -1,6 +1,6 @@
 class AuthService {
   static authenticate(email, password) {
-    return fetch('http://localhost:3000/data/users.json')
+    return fetch('/data/users.json')
       .then((response) => response.json())
       .then((data) => {
         const user = data.users.find(

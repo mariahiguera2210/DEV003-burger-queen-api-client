@@ -1,7 +1,9 @@
 import React from 'react';
-import ClientForm from "./ClientForm";
-import { Card, Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import { Button }  from 'react-bootstrap';
 import { useState, useEffect } from 'react';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 const ProductList = () => {
@@ -21,35 +23,34 @@ const ProductList = () => {
   console.log(products);
 
   return (
-    <div 
-    className="card mb-3"
-    style={{
-      maxWidth: "30rem",
-      background: "#E6AF2E",
-      borderRadius: "15px",
-      padding: "15px",
-      fontSize: "18px",
-      display: "flex" }}
-      >
-      <h2>Lista de productos</h2>
-      <ClientForm onChange={(name) =>{ setName(name)}}/>
-      {products.map((product) => (
-        <Card key={product.id}>
+    <Row xs={2} md={{ span: 6, offset: 3 }} className="g-2">
+      {products.map((product, idx) => (
+        <Col key={idx}>
+          <Card border="warning" key={product.id} style={{ width: '14rem', height: '20rem' ,  maxWidth: "30rem",
+        background: "rgba(0,0,0)",
+        color: "fff",
+        borderRadius: "10px",
+        padding: "15px",
+        fontSize: "18px",
+        display: "flex" }}>
+          <Card.Header style={{height: "10rem"}}>
+          <Card.Img variant="top" src={product.image} />
+          </Card.Header>
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
-            <Card.Text>{product.description}</Card.Text>
+            <Card.Text>{product.price}</Card.Text>
             <Button
-              variant="primary"
+              variant='warning'
               onClick={() =>
                 console.log(`El cliente ${name}, Producto ${product.id} agregado al carrito`)
-          
               }>
               Agregar
             </Button>
           </Card.Body>
         </Card>
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 };
 
