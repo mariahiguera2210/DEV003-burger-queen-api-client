@@ -10,6 +10,7 @@ const Orders = () => {
         fetch("data/orders.json")
             .then(response => response.json())
             .then(data => setOrders(data['orders']))
+            .catch(error => console.error(error))
       }, [])
       
       // console.log(orders)
