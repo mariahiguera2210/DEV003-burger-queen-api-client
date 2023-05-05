@@ -1,9 +1,9 @@
 import React, { useState  } from "react";
-import Input from "./Input";
-import Button from "./Button";
+import Button from 'react-bootstrap/Button';
 import ErrorMessage from "./ErrorMessage";
 import AuthService from "./AuthService";
 import { useNavigate } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const LoginForm = () => {
        if(isAuthenticated){
        navigate("/menu");
        }else{
-        console.log("Usuario no existente");
+        console.log({error});
        }
       })
       .catch((error) => {
@@ -29,22 +29,41 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Input
+    <Form onSubmit={handleSubmit}>
+         <Form.Group className="mb-6" label="Correo electrónico"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}>
+        <Form.Label className="">Email</Form.Label>
+        <Form.Control type="email" placeholder="Enter email"/>
+        <Form.Text className="text-muted">
+        {error && <ErrorMessage message={"email no válido"} />}
+        </Form.Text>
+      </Form.Group>
+      {/* <Input
         label="Correo electrónico"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-      />
-      <Input
+      /> */}
+      <Form.Group className="mb-3" controlId="formBasicPassword"         label="Contraseña"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}>
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" />
+      </Form.Group>
+      {/* <Input
         label="Contraseña"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-      />
-      <Button text="Iniciar sesión" />
+      /> */}
+       <Button variant="primary" type="submit">
+        Submit
+      </Button>
       {error && <ErrorMessage message={error} />}
-    </form>
+    </Form>
   );
 };
 
