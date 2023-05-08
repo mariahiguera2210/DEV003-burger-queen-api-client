@@ -1,65 +1,33 @@
-import React from 'react';
-import { useEffect, useState } from 'react'
-import Table from 'react-bootstrap/Table';
-import { RiDeleteBin6Line } from 'react-icons/ri';
-import { AiOutlineEdit } from 'react-icons/ai';
-import Button from 'react-bootstrap/Button';
+import React, { useEffect, useState } from 'react';
+import TableAdmin from '../components/TableAdmin';
 
-function AdminTable() {
-  const [products, setProducts] = useState([])
-  
+function AdminMenu() {
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then(response => response.json())
       .then(data => setProducts(data.menu))
-  }, [])
- 
- const handleDelete = (productId) => {
-  fetch(`http://localhost:3000/products/`, {
-    //Configura para que use el método delete
-    method: 'DELETE'
-  })
-  //la respuesta del servidor 
-  .then(response => response.json())
-  //despues de que la respuesta se convierta a json
-  .then(data => {
-    // Actualizar el estado de productos después de la eliminación
-    const updatedProducts = products.filter(item => item.id !== productId)
-    setProducts(updatedProducts) // Se actualiza el estado de productos con el nuevo arreglo
-  })
-  .catch(error => console.error(error))
+      .catch(error => console.error(error));
+  }, []);
+
+  const handleDelete = productId => {
+    fetch(`http://localhost:3000/products/${productId}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json())
+      .then(data => {
+        const updatedProducts = products.filter(item => item.id !== productId);
+        setProducts(updatedProducts);
+      })
+      .catch(error => console.error(error));
+  };
+
+  return(
+  <>
+  <TableAdmin products={products} handleDelete={handleDelete} />;
+  </> 
+  )
 }
 
-  return (
-  
-    <Table striped bordered hover variant="dark">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>Nombre</th>
-          <th>Tipo</th>
-          <th>Precio</th>
-          <th>Eliminar</th>
-          <th>Editar</th>
-        </tr>
-      </thead>
-     { products.map(item => (
-      <tbody>
-        <tr>
-          <td>{item.id}</td>
-          <td>{item.name}</td>
-          <td>{item.type}</td>
-          <td>{item.price}</td>
-          <td> <Button variant="danger" onClick={() => handleDelete(item.id)}> < RiDeleteBin6Line/> Eliminar</Button></td>
-          <td> <Button variant="primary"> <AiOutlineEdit/> Editar</Button></td>
-        </tr>
-
-      </tbody>
-
-     ))}
-    </Table>
-    
-
-)}
-
-export default AdminTable
+export default AdminMenu;
