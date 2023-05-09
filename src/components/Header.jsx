@@ -22,7 +22,7 @@ function Header() {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav><Link to="/login">Logout</Link></Nav>
+              <Nav><Link to="/">Logout</Link></Nav>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,10 +1,10 @@
 import React  from "react";
 import './App.css';
-import Login from './components/Login';
+import Login from './Pages/Login';
 import AdminMenu from './Pages/AdminMenu';
 import AdminEmpleado from './Pages/AdminEmpleado';
 import Header from './components/Header';
-import Menu from './components/Menu';
+import Menu from './Pages/Menu';
 import Orders  from './Pages/Orders'; 
 import NotFound from "./components/NotFound";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,7 +22,8 @@ function App() {
   //   console.log(data);
   // });
   return (
-    <div className="App">
+    <div className="App" breakpoints={['lg']}
+    minBreakpoint="md">
     <main className="App-main">
         <Routes>
           <Route path="/" element={<Login/>}/>
