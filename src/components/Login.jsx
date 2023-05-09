@@ -41,6 +41,41 @@ const LoginForm = () => {
   };
 
   return (
+    <Form onSubmit={handleSubmit}>
+         <Form.Group className="mb-6" label="Correo electrónico" 
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}>
+        <Form.Label className="">Email</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" autoComplete = "username"/>
+        <Form.Text className="text-muted">
+        {error && <ErrorMessage message={"email no válido"} />}
+        </Form.Text>
+      </Form.Group>
+      {/* <Input
+        label="Correo electrónico"
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      /> */}
+      <Form.Group className="mb-3" controlId="formBasicPassword"         label="Contraseña"
+        type="password" 
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}>
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" autoComplete= "current-password"/>
+      </Form.Group>
+      {/* <Input
+        label="Contraseña"
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      /> */}
+       <Button variant="primary" type="submit">
+        Login
+      </Button>
+      {error && <ErrorMessage message={error} />}
+    </Form>
   );
 };
 
