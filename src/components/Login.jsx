@@ -48,7 +48,7 @@ const LoginForm = () => {
         <Form.Label className="">Email</Form.Label>
         <Form.Control type="email" placeholder="Enter email" autoComplete = "username"/>
         <Form.Text className="text-muted">
-        {true && <ErrorMessage message={"email no válido"} />}
+        {error && <ErrorMessage message={"email no válido"} />}
         </Form.Text>
       </Form.Group>
       {/* <Input
