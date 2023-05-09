@@ -9,11 +9,10 @@ function Header() {
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>Burguer Quenn</Navbar.Brand>
+          <Navbar.Brand href="/">Burguer Quenn</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Login</Nav.Link>
               <Nav.Link href="/menu">Menu</Nav.Link>
               <Nav.Link href="/orders">Ordenes</Nav.Link>
               <NavDropdown title="Administrador" id="collasible-nav-dropdown">

@@ -23,9 +23,6 @@ function App() {
   // });
   return (
     <div className="App">
-      <nav>
-      <Header/>
-      </nav>
     <main className="App-main">
         <Routes>
           <Route path="/" element={<Login/>}/>
