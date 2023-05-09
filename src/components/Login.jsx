@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Carousel from 'react-bootstrap/Carousel';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import ErrorMessage from './ErrorMessage';
 import { useNavigate } from 'react-router-dom';
 
