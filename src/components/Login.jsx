@@ -4,6 +4,9 @@ import ErrorMessage from "./ErrorMessage";
 import AuthService from "./AuthService";
 import { useNavigate } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
+import { Row, Col} from 'react-bootstrap';
+import '../login.css';
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -29,41 +32,39 @@ const LoginForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-         <Form.Group className="mb-6" label="Correo electrónico"
-        type="email"
-        value={email}
+    <Row className='color'>
+      <Col xs={12} md={6}>
+    <div className="d-flex align-items-center justify-content-center vh-100">
+      <Form className="w-75" onSubmit={handleSubmit}>
+        <div className="text-center">
+          <h1>Burger Queen</h1>
+        </div>
+        <Form.Group className="mb-3" controlId="formBasicEmail" value={email}
         onChange={(e) => setEmail(e.target.value)}>
-        <Form.Label className="">Email</Form.Label>
-        <Form.Control type="email" placeholder="Enter email"/>
-        <Form.Text className="text-muted">
-        {error && <ErrorMessage message={"email no válido"} />}
-        </Form.Text>
-      </Form.Group>
-      {/* <Input
-        label="Correo electrónico"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      /> */}
-      <Form.Group className="mb-3" controlId="formBasicPassword"         label="Contraseña"
-        type="password"
-        value={password}
+          <Form.Label className='label' >Correo</Form.Label>
+          <Form.Control type="email" placeholder="Correo" />
+        </Form.Group>
+        
+
+        <Form.Group className="mb-3" controlId="formBasicPassword" value={password}
         onChange={(e) => setPassword(e.target.value)}>
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
-      {/* <Input
-        label="Contraseña"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      /> */}
-       <Button variant="primary" type="submit">
-        Submit
-      </Button>
-      {error && <ErrorMessage message={error} />}
-    </Form>
+          <Form.Label className='label' >Contraseña</Form.Label>
+          <Form.Control type="password" placeholder="Contraseña" />
+        </Form.Group>
+
+        <div className="d-flex justify-content-center">
+          <Button variant="outline-warning">Iniciar Sesión</Button>
+        </div>
+      </Form>
+    </div>
+    </Col>
+
+    <Col xs={12} md={6}>
+    <div>
+      <img alt='logo' src='../burger.jpg' style={{ width: '100%', height: 'auto', maxWidth: '100%' }}></img>
+     </div>
+    </Col>
+    </Row>
   );
 };
 
