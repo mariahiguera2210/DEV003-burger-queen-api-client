@@ -4,11 +4,17 @@ import Header from '../components/Header';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-
+  const token = localStorage.getItem('sesionToken')
   useEffect(() => {
-    fetch("data/orders.json")
+    fetch('http://localhost:8080/orders', { method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    }
+    },)
       .then((response) => response.json())
-      .then((data) => setOrders(data["orders"]))
+      .then((data) => setOrders(data))
+      
       .catch((error) => console.error(error));
   }, []);
 
