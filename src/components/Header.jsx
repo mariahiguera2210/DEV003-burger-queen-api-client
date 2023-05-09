@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from "react-router-dom";
 
 
 function Header() {
@@ -13,21 +14,19 @@ function Header() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link href="/">Login</Nav.Link>
-              <Nav.Link href="/menu">Menu</Nav.Link>
-              <Nav.Link href="/orders">Ordenes</Nav.Link>
+              <Nav><Link to="/menu">Menu</Link></Nav>
+              <Nav><Link to="/orders">Ordenes</Link></Nav>
               <NavDropdown title="Administrador" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="/productos">Productos</NavDropdown.Item>
-                <NavDropdown.Item href="/empleados">Empleados</NavDropdown.Item>
+                <NavDropdown.Item ><Link to="/productos">Productos</Link></NavDropdown.Item>
+                <NavDropdown.Item ><Link to="/empleados">Empleados</Link></NavDropdown.Item>
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link href="/">Logout</Nav.Link>
+              <Nav><Link to="/login">Logout</Link></Nav>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
     )
 }
 export default Header

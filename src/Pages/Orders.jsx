@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import OrderCard from "../components/OrderCard";
+import Header from '../components/Header';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -18,18 +19,17 @@ const Orders = () => {
   }, []);
 
   const pendingOrders = orders.filter((order) => order.status === "pending");
-  console.log('pendingOrders: ', pendingOrders);
-
- 
 
   return (
-    <>
-      <h1 className="titleOrders">Ordenes Pendientes</h1>
+    <div>
+    <nav>
+      <Header/>
+    </nav> 
+    <h1 className="titleOrders">Ordenes Pendientes</h1>
       {pendingOrders.map((order) => (
         <OrderCard order={order} key={order.id} />
       ))}
-
-    </>
+      </div>
   );
 };
 
