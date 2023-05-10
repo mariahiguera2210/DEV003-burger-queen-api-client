@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Table({products}) {
   return (
-    <table className="table table-bordered" style={{ fontSize: '18px',  color: '#fff'}}>
+    <table className="table table-striped table-dark" style={{ fontSize: '18px',  color: '#fff', margin:'10px'}}>
           <thead>
             <tr>
               <th>Productos</th>

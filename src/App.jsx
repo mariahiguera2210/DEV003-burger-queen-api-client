@@ -11,17 +11,9 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
 
-  // const [order,setOrder]=useState({})
-
-  // fetch("data/orders.json")
-  // .then(response => response.json())
-  // .then(data => {
-  //   // El objeto JSON está almacenado en la variable 'data'
-  //   console.log(data);
-  // });
   return (
     <div className="App" breakpoints={['lg']}
-    minBreakpoint="md">
+    minbreakpoint="md">
     <main className="App-main">
         <Routes>
           <Route path="/" element={<Login/>}/>
