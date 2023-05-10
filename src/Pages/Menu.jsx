@@ -5,21 +5,31 @@ import ProductList from '../components/ProductList';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
-
 const Menu = () => {
   const [name, setName] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [countProducts, setCountProducts] = useState(0);
+
   return (
-    <div className='text-center'>
-      <Header/>
+    <div className="text-center">
+      <Header
+        allProducts={allProducts}
+        setAllProducts={setAllProducts}
+        total={total}
+        setTotal={setTotal}
+        countProducts={countProducts}
+        setCountProducts={setCountProducts}
+      />
       <div>
         <ClientForm
           onChange={(name) => {
             setName(name);
           }}
         />
-         <Button
-          style={{ fontSize: '1.4rem'}}
-         className='mb-5 mx-3'
+        <Button
+          style={{ fontSize: '1.4rem' }}
+          className="mb-5 mx-3"
           variant="warning"
           // onClick={() =>
 
@@ -28,15 +38,22 @@ const Menu = () => {
           Desayuno
         </Button>
         <Button
-          style={{ fontSize: '1.4rem'}}
-          className='mb-5 mx-3'
+          style={{ fontSize: '1.4rem' }}
+          className="mb-5 mx-3"
           variant="warning"
           // onClick={() =>
           // }
         >
           Almuerzo y Cena
         </Button>
-        <ProductList />
+        <ProductList
+          allProducts={allProducts}
+          setAllProducts={setAllProducts}
+          total={total}
+          setTotal={setTotal}
+          countProducts={countProducts}
+          setCountProducts={setCountProducts}
+        />
       </div>
     </div>
   );
