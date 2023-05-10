@@ -12,8 +12,7 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
 
   return (
-    <div className="App" breakpoints={['lg']}
-    minbreakpoint="md">
+    <div className="App">
     <main className="App-main">
         <Routes>
           <Route path="/" element={<Login/>}/>
