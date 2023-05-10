@@ -26,7 +26,7 @@ const LoginForm = () => {
       .then((response) => response.json())
       .then((data) => { 
         const accessToken= data.accessToken
-        console.log('accessToken: ', accessToken);
+        // console.log('accessToken: ', accessToken);
        
         const user = data.user.email
         localStorage.setItem("sesionUser", JSON.stringify(user));
@@ -93,7 +93,7 @@ const LoginForm = () => {
               onChange={(e) => setEmail(e.target.value)}
             >
               <Form.Label className="">Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control type="email" placeholder="Enter email" autoComplete= "username"/>
               <Form.Text className="text-muted">
                 {error && <ErrorMessage message={'email no válido'} />}
               </Form.Text>
@@ -108,7 +108,7 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             >
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" placeholder="Password"  autoComplete='current-password'/>
             </Form.Group>
         
             <Button variant="warning" type="submit"  style={{ width:"8rem"}}>
