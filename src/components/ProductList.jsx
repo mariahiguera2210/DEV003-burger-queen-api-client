@@ -18,7 +18,7 @@ const ProductList = () => {
       });
 
   }, []);
-  
+
   return (
     <Container>
     <Row xs={3}>
@@ -27,7 +27,7 @@ const ProductList = () => {
           <Card className="mb-4" border="warning" key={product.id} style={{ width: '14rem', height: '20rem' ,  maxWidth: "30rem",
         background: "rgba(0,0,0)",
         color: "fff",
-        borderRadius: "10px",
+        borderRadius: "1rem",
         padding: "15px",
         fontSize: "18px",
         display: "flex" }}>

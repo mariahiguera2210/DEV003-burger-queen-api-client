@@ -18,6 +18,7 @@ const Menu = () => {
           }}
         />
          <Button
+          style={{ fontSize: '1.4rem'}}
          className='mb-5 mx-3'
           variant="warning"
           // onClick={() =>
@@ -27,6 +28,7 @@ const Menu = () => {
           Desayuno
         </Button>
         <Button
+          style={{ fontSize: '1.4rem'}}
           className='mb-5 mx-3'
           variant="warning"
           // onClick={() =>
