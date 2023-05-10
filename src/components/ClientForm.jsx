@@ -10,11 +10,13 @@ const ClientForm = (props) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className='text-center pt-3 pb-3'>
       <Form.Group controlId="formName">
         <Form.Control
+         style={{ width: '18rem', marginLeft: "4rem"}}
+         className='text-center mt-3 mb-3'
           type="text"
-          placeholder="Ingresa tu nombre"
+          placeholder="Cliente"
           value={name}
           onChange={(event) => {
             setName(event.target.value);
@@ -22,6 +24,8 @@ const ClientForm = (props) => {
           }}
         />
          <Form.Control
+         className='text-center mt-3 mb-3'
+         style={{ width: '8rem', marginLeft: "4rem"}}
           type="text"
           placeholder="Mesa"
           value={table}

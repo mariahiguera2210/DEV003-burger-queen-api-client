@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import ErrorMessage from './ErrorMessage';
+import ErrorMessage from '../components/ErrorMessage';
 import { useNavigate } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
@@ -39,7 +39,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Container className="pt-3 mx-6">
+    <Container className='text-center pt-3 mx-6'>
       <Row>
         <span
           style={{
@@ -47,8 +47,7 @@ const LoginForm = () => {
             fontSize: '3rem',
             fontWeight: '600',
             paddingTop: '3rem',
-            paddingBottom: '1rem',
-
+            paddingBottom: '1rem'
           }}
         >
           BURGER QUEEN

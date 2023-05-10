@@ -1,7 +1,7 @@
 import React from 'react';
-import ClientForm from './ClientForm';
-import Header from './Header';
-import ProductList from './ProductList';
+import ClientForm from '../components/ClientForm';
+import Header from '../components/Header';
+import ProductList from '../components/ProductList';
 import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 
@@ -9,28 +9,33 @@ import { useState, useEffect } from 'react';
 const Menu = () => {
   const [name, setName] = useState([]);
   return (
-    <div>
+    <div className='text-center'>
       <Header/>
       <div>
-        <Button
+        <ClientForm
+          onChange={(name) => {
+            setName(name);
+          }}
+        />
+         <Button
+          style={{ fontSize: '1.4rem'}}
+         className='mb-5 mx-3'
           variant="warning"
           // onClick={() =>
+
           // }
         >
           Desayuno
         </Button>
         <Button
+          style={{ fontSize: '1.4rem'}}
+          className='mb-5 mx-3'
           variant="warning"
           // onClick={() =>
           // }
         >
           Almuerzo y Cena
         </Button>
-        <ClientForm
-          onChange={(name) => {
-            setName(name);
-          }}
-        />
         <ProductList />
       </div>
     </div>

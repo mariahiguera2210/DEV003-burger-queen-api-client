@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { Button }  from 'react-bootstrap';
+import { Button, Container }  from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -8,7 +8,6 @@ import Row from 'react-bootstrap/Row';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-  const [name , setName] = useState([]);
 
   useEffect(() => {
     fetch('/data/products.json')
@@ -20,37 +19,39 @@ const ProductList = () => {
 
   }, []);
 
-  console.log(products);
-
   return (
-    <Row xs={2} md={{ span: 6, offset: 3 }} className="g-2">
+    <Container>
+    <Row xs={3}>
       {products.map((product, idx) => (
         <Col key={idx}>
-          <Card border="warning" key={product.id} style={{ width: '14rem', height: '20rem' ,  maxWidth: "30rem",
+          <Card className="mb-4" border="warning" key={product.id} style={{ width: '14rem', height: '20rem' ,  maxWidth: "30rem",
         background: "rgba(0,0,0)",
         color: "fff",
-        borderRadius: "10px",
+        borderRadius: "1rem",
         padding: "15px",
         fontSize: "18px",
         display: "flex" }}>
           <Card.Header style={{height: "10rem"}}>
-          <Card.Img variant="top" src={product.image} />
+          <Card.Img variant="top" src={product.image} style={{ maxWidth: '14rem'}
+          }/>
           </Card.Header>
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
             <Card.Text>{product.price}</Card.Text>
             <Button
+             className="pt-1 mt-0"
               variant='warning'
               onClick={() =>
-                console.log(`El cliente ${name}, Producto ${product.id} agregado al carrito`)
+                console.log(`${product.name} agregado`)
               }>
-              Agregar
+                Agregar
             </Button>
           </Card.Body>
         </Card>
         </Col>
       ))}
     </Row>
+    </Container>
   );
 };
 

@@ -1,31 +1,45 @@
-import React, { useState } from "react";
-import Table from "./Table";
+import React, { useState } from 'react';
+import Table from './Table';
+import { Container } from 'react-bootstrap';
 
 const OrderCard = ({ order }) => {
-
-const [status, setStatus] = useState(order.status)
-const handleUpdate = (status) => { console.log("este es el status ", status) }
+  const [status, setStatus] = useState(order.status);
+  const handleUpdate = (status) => {
+    console.log('este es el status ', status);
+  };
 
   return (
-    <div
-      className="card mb-3"
+    <Container
+      className="mb-4 mt-5"
       style={{
-        maxWidth: "30rem",
-        background: "#E6AF2E",
-        borderRadius: "15px",
-        padding: "15px",
-        fontSize: "18px"
+        maxWidth: '30rem',
+        background: 'rgba(0,0,0)',
+        borderRadius: '1rem',
+        padding: '1.3rem',
+        fontSize: '1.3rem',
+        color: '#fff',
       }}
-    > 
-      <p><b>Orden id:</b> {order.id}</p>
-      <p><b>Estatus: </b>{order.status}</p>
+    >
+      <p>
+        <b>Orden id:</b> {order.id}
+      </p>
+      <p>
+        <b>Estatus: </b>
+        {order.status}
+      </p>
       <Table products={order.products} />
 
-      <button type="button" className="btn btn-danger" onClick={() => handleUpdate(order.status)}>Enviar</button>
-      { // aca hacer el cambio de status
-       }
-      
-    </div>
+      <button
+        type="button"
+        className="btn btn-warning"
+        onClick={() => handleUpdate(order.status)}
+      >
+        Enviar
+      </button>
+      {
+        // aca hacer el cambio de status
+      }
+    </Container>
   );
 };
 
