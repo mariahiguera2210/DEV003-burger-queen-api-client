@@ -4,7 +4,7 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 
-function TableAdmin({ products, handleDelete }) {
+function TableAdmin({ products, handleDelete, handleEditClick }) {
   return (
     <Table striped bordered hover variant="dark">
       <thead>
@@ -18,7 +18,7 @@ function TableAdmin({ products, handleDelete }) {
         </tr>
       </thead>
       <tbody>
-        {products.map(item => (
+        {products.map((item) => (
           <tr key={item.id}>
             <td>{item.id}</td>
             <td>{item.name}</td>
@@ -31,7 +31,7 @@ function TableAdmin({ products, handleDelete }) {
               </Button>
             </td>
             <td>
-              <Button variant="success">
+              <Button variant="success" onClick={() => handleEditClick(item.id)}>
                 <AiOutlineEdit />
                 Editar
               </Button>
@@ -42,7 +42,5 @@ function TableAdmin({ products, handleDelete }) {
     </Table>
   );
 }
-
-
 
 export default TableAdmin;
