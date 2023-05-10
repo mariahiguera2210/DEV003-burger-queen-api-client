@@ -31,7 +31,7 @@ function TableAdmin({ products, handleDelete }) {
               </Button>
             </td>
             <td>
-              <Button variant="primary">
+              <Button variant="success">
                 <AiOutlineEdit />
                 Editar
               </Button>
