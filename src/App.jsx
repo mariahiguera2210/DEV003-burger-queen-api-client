@@ -1,16 +1,14 @@
-import React  from "react";
+import React from 'react';
 import './App.css';
 import Login from './Pages/Login';
 import Admin from './Pages/Admin';
 import Menu from './Pages/Menu';
-import Orders  from './Pages/Orders'; 
-import NotFound from "./components/NotFound";
+import Orders from './Pages/Orders';
+import NotFound from './components/NotFound';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Route, Routes } from "react-router-dom";
-
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-
   // const [order,setOrder]=useState({})
 
   // fetch("data/orders.json")
@@ -20,20 +18,17 @@ function App() {
   //   console.log(data);
   // });
   return (
-    <div className="App" breakpoints={['lg']}
-    minBreakpoint="md">
-    <main className="App-main">
+    <div className="App" >
+      <main className="App-main">
         <Routes>
-          <Route path="/" element={<Login/>}/>
-          <Route path="/menu" element={<Menu/>}/>
-          <Route path="/orders" element={<Orders/>}/>
-          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/" element={<Login />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-
-        </main> 
+      </main>
     </div>
-
   );
 }
 

@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping  } from '@fortawesome/free-solid-svg-icons';
 
 
 function Header() {
@@ -10,6 +12,7 @@ function Header() {
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand  style={{ fontSize: '2rem', color:'#E6AF2E'}}>Burguer Quenn</Navbar.Brand>
+          <Nav ><FontAwesomeIcon icon={faCartShopping}/></Nav>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" style={{ fontSize: "1.2rem"}}>
@@ -30,7 +33,7 @@ function Header() {
               <Nav><Link to="/"  style={{
                   textDecoration: 'none',
                   color: 'var(--bs-navbar-color)',
-                }}>Logout</Link></Nav>
+                }}> Logout</Link></Nav>
             </Nav>
           </Navbar.Collapse>
         </Container>
