@@ -3,29 +3,30 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-function EditarAdmin({ editProduct, showModal, handleClose, handleUpdateProduct }) {
+
+function AgregarEmpleado({ handleAddProduct }) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [productName, setProductName] = useState('');
   const [productType, setProductType] = useState('');
   const [productPrice, setProductPrice] = useState('');
 
   const handleAddClick = () => {
-    const updatedProduct = {
-      id: editProduct.id,
-      name: productName,
-      type: productType,
-      price: productPrice,
-    };
-
-    handleUpdateProduct(updatedProduct);
+    handleAddProduct({ name: productName, type: productType, price: productPrice });
     handleClose();
   };
 
   return (
-    <div className="d-flex justify-content-start" style={{ marginLeft: '5%', marginBottom: '3%' }}>
+    <div className="d-flex justify-content-start" style={{marginLeft: '5%', marginBottom: '3%'}}>
+      <Button style={{width: '15%'}} variant='primary' onClick={handleShow}>
+        Agregar
+      </Button>
 
-      <Modal show={showModal} onHide={handleClose} animation={false}>
+      <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Editar Producto</Modal.Title>
+          <Modal.Title>Agregar Producto</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -68,8 +69,8 @@ function EditarAdmin({ editProduct, showModal, handleClose, handleUpdateProduct 
           <Button variant="secondary" onClick={handleClose}>
             Cancelar
           </Button>
-          <Button variant="success" onClick={handleAddClick}>
-            Actualizar
+          <Button variant="primary" onClick={handleAddClick}>
+            Agregar
           </Button>
         </Modal.Footer>
       </Modal>
@@ -77,4 +78,4 @@ function EditarAdmin({ editProduct, showModal, handleClose, handleUpdateProduct 
   );
 }
 
-export default EditarAdmin;
+export default AgregarEmpleado;

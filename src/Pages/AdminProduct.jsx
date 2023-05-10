@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TableAdmin from '../components/TableAdmin';
-import { Button } from 'react-bootstrap';
 import Header from '../components/Header';
-import Col from 'react-bootstrap/Col';
 import AgregarAdmin from '../components/AgregarAdmin';
 import EditarAdmin from '../components/EditarAdmin';
 

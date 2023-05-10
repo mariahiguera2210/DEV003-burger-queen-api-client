@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-function EditarAdmin({ editProduct, showModal, handleClose, handleUpdateProduct }) {
+function EditarEmpleado({ editProduct, showModal, handleClose, handleUpdateProduct }) {
   const [productName, setProductName] = useState('');
   const [productType, setProductType] = useState('');
   const [productPrice, setProductPrice] = useState('');
@@ -77,4 +77,4 @@ function EditarAdmin({ editProduct, showModal, handleClose, handleUpdateProduct 
   );
 }
 
-export default EditarAdmin;
+export default EditarEmpleado;
