@@ -1,7 +1,8 @@
 import React  from "react";
 import './App.css';
 import Login from './Pages/Login';
-import Admin from './Pages/Admin';
+import AdminEmpleados from './Pages/AdminEmpleados';
+import AdminProducts from './Pages/AdminProduct';
 import Menu from './Pages/Menu';
 import Orders  from './Pages/Orders'; 
 import NotFound from "./components/NotFound";
@@ -19,7 +20,8 @@ function App() {
           <Route path="/" element={<Login/>}/>
           <Route path="/menu" element={<Menu/>}/>
           <Route path="/orders" element={<Orders/>}/>
-          <Route path="/admin" element={<Admin/>}/>
+          <Route path="/Products" element={<AdminProducts/>}/>
+          <Route path="/Empleados" element={<AdminEmpleados/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
 
