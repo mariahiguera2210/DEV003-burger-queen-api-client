@@ -26,7 +26,7 @@ const LoginForm = () => {
       .then((response) => response.json())
       .then((data) => { 
         const accessToken= data.accessToken
-        // console.log('accessToken: ', accessToken);
+        console.log('accessToken: ', accessToken);
        
         const user = data.user.email
         localStorage.setItem("sesionUser", JSON.stringify(user));

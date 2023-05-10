@@ -28,7 +28,7 @@ const Orders = () => {
         setShowPending(status === 'pending');
         setShowCooked(status === 'cooked');
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error));  
   };
   
   //solo aparece el useffect cuando el componente al que pertenece en este caso Orders se renderiza 
