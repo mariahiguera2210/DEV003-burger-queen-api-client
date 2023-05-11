@@ -3,7 +3,7 @@ import Table from "./Table";
 import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
-const CookedCard = ({ order, setOrders }) => {
+const OrderCard = ({ order, setOrders }) => {
   const handleClick = () => {
     const token = localStorage.getItem("sesionToken");
 
@@ -13,7 +13,7 @@ const CookedCard = ({ order, setOrders }) => {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ status: "delivered" }),
+      body: JSON.stringify({ status: "cooked" }),
     })
       .then((response) => response.json())
       .catch((error) => console.error(error));
@@ -42,8 +42,8 @@ const CookedCard = ({ order, setOrders }) => {
       }}
     >
       <Card
-        className="mb-4" 
-        border="success" 
+        className="mb-4"
+        border="warning"
         style={{
           width: "30 vw",
           height: "25 vh",
@@ -81,4 +81,4 @@ const CookedCard = ({ order, setOrders }) => {
   );
 };
 
-export default CookedCard;
+export default OrderCard;
