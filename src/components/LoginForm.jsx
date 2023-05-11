@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
-import '../login.css';
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');

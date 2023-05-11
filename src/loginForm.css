@@ -1,0 +1,25 @@
+.text-center{
+    margin-top: -150px;
+    padding-bottom: 90px ;
+   }
+   .text-center h1{
+     font-size: 60px;
+   }
+   
+   .label-email,
+   .label-password {
+     margin-left: 25%;
+   }
+   
+   .form-group-email,
+   .form-group-password {
+     width: 60%;
+     margin: 0 auto;
+   }
+   
+   .d-flex button{
+     margin-top: 30px;
+   }
+   
+   
+     
