@@ -1,8 +1,34 @@
-.color{
-    color: #E6AF2E; 
-  }
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
-.label{
-    font-size: 15px;
+
+.login{
+  background-color: #1E1E1E;
+  color: #E6AF2E;
+  font-family: 'Lilita One', cursive;
 }
+
+.text-center{
+ margin-top: -150px;
+ padding-bottom: 90px ;
+}
+.text-center h1{
+  font-size: 60px;
+}
+
+.label-email,
+.label-password {
+  margin-left: 25%;
+}
+
+.form-group-email,
+.form-group-password {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.d-flex button{
+  margin-top: 30px;
+}
+
+
   

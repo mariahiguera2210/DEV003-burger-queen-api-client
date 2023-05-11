@@ -2,11 +2,7 @@
   background-color: rgba(0,0,0);
 }
 
-.burger {
-  height: 50vh;
-  width: 50vh;
-  pointer-events: none;
-}
+
 
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
