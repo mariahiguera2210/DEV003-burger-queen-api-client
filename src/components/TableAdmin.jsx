@@ -6,9 +6,9 @@ import Table from 'react-bootstrap/Table';
 
 function TableAdmin({ products, handleDelete, handleEditClick }) {
   return (
-    <Table striped bordered hover variant="dark">
+    <Table striped bordered hover variant="dark" className="mx-auto" style={{width: '80%'}}>
       <thead>
-        <tr>
+        <tr >
           <th>id</th>
           <th>Nombre</th>
           <th>Tipo</th>
@@ -25,15 +25,13 @@ function TableAdmin({ products, handleDelete, handleEditClick }) {
             <td>{item.type}</td>
             <td>{item.price}</td>
             <td>
-              <Button variant="danger" onClick={() => handleDelete(item.id)}>
-                <RiDeleteBin6Line />
-                Eliminar
+              <Button variant="outline-warning" onClick={() => handleDelete(item.id)}>
+              <RiDeleteBin6Line size={20} />
               </Button>
             </td>
             <td>
-              <Button variant="success" onClick={() => handleEditClick(item.id)}>
-                <AiOutlineEdit />
-                Editar
+              <Button variant="outline-warning" onClick={() => handleEditClick(item.id)}>
+                <AiOutlineEdit size={20}/>
               </Button>
             </td>
           </tr>
