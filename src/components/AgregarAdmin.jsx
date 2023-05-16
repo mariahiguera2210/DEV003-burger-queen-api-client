@@ -20,7 +20,7 @@ function AgregarAdmin({ handleAddProduct }) {
 
   return (
     <div className="d-flex justify-content-start" style={{marginLeft: '5%', marginBottom: '3%'}}>
-      <Button style={{width: '15%'}} variant='primary' onClick={handleShow}>
+      <Button style={{width: '15%',  fontFamily: "'Lilita One', cursive", marginTop: '7%', marginLeft: '5%'}} variant='warning' onClick={handleShow}>
         Agregar
       </Button>
 
