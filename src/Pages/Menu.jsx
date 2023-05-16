@@ -13,14 +13,7 @@ const Menu = () => {
 
   return (
     <div className="text-center">
-      <Header
-        allProducts={allProducts}
-        setAllProducts={setAllProducts}
-        total={total}
-        setTotal={setTotal}
-        countProducts={countProducts}
-        setCountProducts={setCountProducts}
-      />
+      <Header />
       <div>
         <ClientForm
           onChange={(name) => {

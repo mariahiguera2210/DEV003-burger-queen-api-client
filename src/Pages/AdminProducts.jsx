@@ -51,7 +51,7 @@ function AdminProducts() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setProducts([...products, data]);
+        setProducts(products.concat(data));
       })
       .catch((error) => console.error(error));
   };
@@ -68,13 +68,12 @@ function AdminProducts() {
       .then((response) => response.json())
       .then((data) => {
         const updatedProducts = products.map((item) =>
+        //si el id del producto coincide con el id del updatedProduct
           item.id === updatedProduct.id ? updatedProduct : item
         );
         setProducts(updatedProducts);
       })
       .catch((error) => console.error(error));
-  
-    console.log('Producto actualizado:', updatedProduct);
   };
   
   
