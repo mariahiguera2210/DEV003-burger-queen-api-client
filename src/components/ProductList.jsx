@@ -30,9 +30,10 @@ const ProductList = ({allProducts, setAllProducts}) => {
       });
   }, []);
 
-  const addProduct = () => {
-    console.log('add')
+  const addProduct = (product) => {
+    setAllProducts([...allProducts, product])
   }
+  console.log(allProducts)
 
   return (
     <Container>
@@ -67,7 +68,7 @@ const ProductList = ({allProducts, setAllProducts}) => {
                 <Button
                   className="pt-1 mt-0"
                   variant="warning"
-                  onClick={() => addProduct(console.log(`${product.name} agregado`)) }
+                  onClick={() => addProduct(product) }
                 >
                  Agregar
                 </Button>
