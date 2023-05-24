@@ -61,7 +61,7 @@ const LoginForm = () => {
                message: 'Debe ingresar un correo electronico'
               },
               pattern:{
-               value: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+               value: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$',
                message: 'El formato no es correcto'
               }
               })} 

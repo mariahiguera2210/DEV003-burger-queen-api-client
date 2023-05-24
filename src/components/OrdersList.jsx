@@ -3,7 +3,7 @@ import Table from "./Table";
 import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
-const OrderCard = ({ order, setOrders }) => {
+const OrdersList = ({ order, setOrders }) => {
   const handleClick = () => {
     const token = localStorage.getItem("sesionToken");
 
@@ -81,4 +81,4 @@ const OrderCard = ({ order, setOrders }) => {
   );
 };
 
-export default OrderCard;
+export default OrdersList;

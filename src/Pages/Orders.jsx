@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-// import OrderCard from "../components/PendingOrderCard";
 import { Button } from "react-bootstrap";
 import Header from "../components/Header";
 import Col from "react-bootstrap/Col";
-import OrderCard from "../components/OrderCard";
+import OrdersList from "../components/OrdersList";
+import { useNavigate } from 'react-router-dom';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [showOrders, setShowOrders] = useState([]);
   const token = localStorage.getItem("sesionToken");
+  const navigate = useNavigate();
+  
 
   const handleOrders = () => {
     fetch("http://localhost:8080/orders", {
@@ -18,17 +20,25 @@ const Orders = () => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status === 401) {
+          localStorage.clear();
+          navigate("/");
+        }
+
+        return response.json();})
       .then((data) => {
         setOrders(data);
       })
       .catch((error) => console.error(error));
+      
   };
+   
 
   //solo aparece el useffect cuando el componente al que pertenece en este caso Orders se renderiza
   // si pongo una dependecia (variable) en el array vacio se va a ejecutar el usseEffet cada vez que cambia esa variable.
 
-  const handleClickPendings = () => {
+    const handleClickPendings = () => {
     handleOrders();
     setShowOrders(orders.filter((order) => order.status === "pending"));
   };
@@ -37,6 +47,7 @@ const Orders = () => {
     handleOrders();
     setShowOrders(orders.filter((order) => order.status === "cooked"));
   };
+
 
   return (
     <Col className="text-center">
@@ -56,10 +67,10 @@ const Orders = () => {
           variant="warning"
           onClick={() => handleClickCooked()}
         >
-          Ordenes Por Entregar
+          Ordenes Listas
         </Button>
         {showOrders.map((order) => (
-          <OrderCard order={order} key={order.id} setOrders={setOrders} />
+          <OrdersList order={order} key={order.id} setOrders={setOrders} />
         ))}
       </div>
     </Col>

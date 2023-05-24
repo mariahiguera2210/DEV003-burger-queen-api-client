@@ -1,22 +1,23 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Button, Container } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
 
-const ProductList = ({allProducts, setAllProducts}) => {
-  const [products, setProducts] = useState([]);
+const ProductList = ({product, setProducts}) => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch('http://localhost:8080/products', {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('sesionToken')}`,
+  const addProduct = () => {
+    const token = localStorage.getItem("sesionToken");
+    fetch("http://localhost:8080/products", {
+      
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
       },
     })
-      .then((response) => {
+      .then((response) =>  {
         if (response.status === 401) {
           localStorage.clear();
           navigate("/");
@@ -25,24 +26,23 @@ const ProductList = ({allProducts, setAllProducts}) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        setProducts(data);
-      });
-  }, []);
 
-  const addProduct = () => {
-    console.log('add')
+        setProducts(data);
+      })
+      
+      .catch(error => console.error(error)
+        ) ;
+
+    
   }
 
   return (
     <Container>
-      <Row xs={3}>
-        {products.map((product, idx) => (
-          <Col key={idx}>
+      <Row xs={2}>
+          <Col>
             <Card
               className="mb-4"
               border="warning"
-              key={product.id}
               style={{
                 width: '14rem',
                 height: '22rem',
@@ -67,14 +67,14 @@ const ProductList = ({allProducts, setAllProducts}) => {
                 <Button
                   className="pt-1 mt-0"
                   variant="warning"
-                  onClick={() => addProduct(console.log(`${product.name} agregado`)) }
+                  onClick={() => addProduct() }
                 >
                  Agregar
                 </Button>
               </Card.Body>
             </Card>
           </Col>
-        ))}
+        
       </Row>
     </Container>
   );
