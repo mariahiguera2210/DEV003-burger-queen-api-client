@@ -35,7 +35,6 @@ const ProductList = ({product, setProducts}) => {
 
     
   }
-  console.log(allProducts)
 
   return (
     <Container>
