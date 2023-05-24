@@ -52,6 +52,7 @@ const Menu = () => {
   }
  
 
+
   return (
     <div className="text-center">
       <Header />
@@ -61,6 +62,7 @@ const Menu = () => {
             setName(name);
           }}
         />
+         
         <Button
           style={{ fontSize: '1.4rem' }}
           className="mb-5 mx-3"

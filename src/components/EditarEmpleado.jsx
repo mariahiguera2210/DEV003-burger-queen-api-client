@@ -49,9 +49,9 @@ function EditarEmpleado({ editEmpleado, showModal, handleClose, handleUpdateEmpl
                 value={puestoEmpleado}
                 onChange={(e) => setPuestoEmpleado(e.target.value)}
               >
-                <option value="Desayuno">Administrador</option>
-                <option value="Almuerzo">Chef</option>
-                <option value="Acompañamiento">Mesero</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Chef">Chef</option>
+                <option value="Mesero">Mesero</option>
               </Form.Select>
             </Form.Group>
 
