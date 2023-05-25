@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Button, Container } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from './carrito/CartContext';
+
 
 const ProductList = ({product, setProducts}) => {
+
   const navigate = useNavigate();
+  const { cart, setCart } = useContext(CartContext);
   const addProduct = () => {
     const token = localStorage.getItem("sesionToken");
     fetch("http://localhost:8080/products", {
@@ -32,8 +36,12 @@ const ProductList = ({product, setProducts}) => {
       
       .catch(error => console.error(error)
         ) ;
+  }
 
-    
+
+  const buyProducts = (product) => {
+    console.log(product)
+    setCart([...cart, product])
   }
 
   return (
@@ -67,7 +75,7 @@ const ProductList = ({product, setProducts}) => {
                 <Button
                   className="pt-1 mt-0"
                   variant="warning"
-                  onClick={() => addProduct() }
+                onClick={() => buyProducts(product) }
                 >
                  Agregar
                 </Button>
