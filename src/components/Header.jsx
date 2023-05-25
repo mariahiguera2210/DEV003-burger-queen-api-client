@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BiLogOut } from 'react-icons/bi';
-import ShoppingCart from './ShoppingCart';
+import ShoppingCart from './carrito/ShoppingCart';
 
 function Header() {
   return (

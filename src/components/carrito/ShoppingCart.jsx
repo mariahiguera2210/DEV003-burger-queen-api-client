@@ -1,33 +1,21 @@
-import React from 'react';
-import TableClient from './TableClient';
+import React, {useContext} from 'react';
+import TableClient from '../TableClient';
 import TableOrders from './TableOrders';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { CartContext } from './CartContext';
 
-function ShoppingCart({ allProducts }) {
+function ShoppingCart() {
   const [show, setShow] = useState(false);
   const [orders, setOrders] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const token = localStorage.getItem("sesionToken");
 
-  useEffect(() => {
-    fetch('http://localhost:8080/orders', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setOrders(data))
-      .catch((error) => console.error(error));
-  }, []);
-
   const products = []; 
-
+  const { cart } = useContext(CartContext);
   return (
     <div>
       <Button variant='warning' onClick={handleShow}>
@@ -38,7 +26,8 @@ function ShoppingCart({ allProducts }) {
           <Modal.Title>Orden</Modal.Title>
         </Modal.Header>
 
-        {orders.length > 0 ? (
+       
+        {cart.length > 0 ? (
           <Modal.Body>
            
             <TableOrders
@@ -46,17 +35,13 @@ function ShoppingCart({ allProducts }) {
              orders={orders}
              products={products}
             />
-             <TableClient
-             className="text-center"
-             orders={orders}
-            />
+  
           </Modal.Body>
         ) : (
           <Modal.Body>
             El carrito está vacío
           </Modal.Body>
         )}
-
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancelar

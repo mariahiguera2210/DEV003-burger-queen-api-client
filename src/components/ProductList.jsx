@@ -1,45 +1,46 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import { Button, Container } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from './carrito/CartContext';
 
-const ProductList = ({product, setProducts}) => {
+const ProductList = ({ product, setProducts }) => {
   const navigate = useNavigate();
+  const { cart, setCart } = useContext(CartContext);
+
   const addProduct = () => {
-    const token = localStorage.getItem("sesionToken");
-    fetch("http://localhost:8080/products", {
-      
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+    const token = localStorage.getItem('sesionToken');
+    fetch('http://localhost:8080/products', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
     })
-      .then((response) =>  {
+      .then((response) => {
         if (response.status === 401) {
           localStorage.clear();
-          navigate("/");
+          navigate('/');
         }
-
         return response.json();
       })
       .then((data) => {
-
         setProducts(data);
       })
-      
-      .catch(error => console.error(error)
-        ) ;
+      .catch((error) => console.error(error));
+  };
 
-    
-  }
+  const buyProducts = (product) => {
+    setCart([...cart, product]);
+  };
 
   return (
     <Container>
-      <Row xs={2}>
-          <Col>
+      <Row xs={1} className="g-4">
+      
+          <Col key={product.id}>
             <Card
               className="mb-4"
               border="warning"
@@ -62,19 +63,19 @@ const ProductList = ({product, setProducts}) => {
                 />
               </Card.Header>
               <Card.Body>
-                <Card.Title className='pt-1'>{product.name}</Card.Title>
+                <Card.Title className="pt-1">{product.name}</Card.Title>
                 <Card.Text>{product.price}</Card.Text>
                 <Button
                   className="pt-1 mt-0"
                   variant="warning"
-                  onClick={() => addProduct() }
+                  onClick={() => buyProducts(product)}
                 >
-                 Agregar
+                  Agregar
                 </Button>
               </Card.Body>
             </Card>
           </Col>
-        
+    
       </Row>
     </Container>
   );
