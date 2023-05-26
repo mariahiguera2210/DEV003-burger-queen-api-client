@@ -6,14 +6,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { AiOutlineLine } from 'react-icons/ai';
-import { GrAdd } from 'react-icons/gr';
+import { RiDeleteBin6Line } from 'react-icons/ri';
+import { BsPlus } from 'react-icons/bs';
 import { CartContext } from './CartContext';
 
 function TableOrders() {
   const { cart } = useContext(CartContext);
   return (
     <Row>
-      <ListGroup className="align-items-center">
+      <ListGroup className="align-items-center" >
         {cart.map((products) => (
           <ListGroup.Item
             as="li"
@@ -21,35 +22,70 @@ function TableOrders() {
             key={products.id}
           >
             <Col xs={2} md={2}>
-              <Badge bg="warning" pill className="position-absolute top-0 start-0">
-                {products.qty}
-              </Badge>
               <Image src={products.image} alt={products.name} thumbnail />
             </Col>
 
             <Col xs={7} md={7} style={{ paddingTop: '2%', marginLeft: '10px' }}>
-              <p style={{ marginBottom: '3px', fontSize: '15px' }}>
-                <strong>{products.name}</strong>
+              <p style={{ marginBottom: '3px', fontSize: '15px',  fontFamily: "'Lilita One', cursive"  }}>
+                {products.name}
               </p>
-              <p style={{ marginBottom: '3px', fontSize: '13px'}}>{products.type}</p>
+              <p style={{ marginBottom: '3px', fontSize: '13px' }}>${products.price}</p>
             </Col>
 
             <Col
-              xs={3}
-              md={3}
-              className="d-flex justify-content-end align-items-center"
-              style={{ marginTop: '2%' }}
-            >
-              <Button variant="outline-warning" style={{ marginRight: '10px' }}>
+                 xs={3}
+                 md={3}
+                 className="d-flex justify-content-end align-items-center"
+                 style={{ marginTop: '2%' }}
+               >
+                <Button variant="outline-warning" style={{ marginRight: '10px' }}>
                 <AiOutlineLine />
               </Button>
 
-              <p style={{ marginTop: '15%', marginRight: '10px' }}>${products.price}</p>
-
+              <p style={{ marginTop: '15%', marginRight: '10px' }}>{products.qty}</p>
               <Button variant="outline-warning">
-                <GrAdd />
+                <BsPlus />
               </Button>
-            </Col>
+              </Col>
+
+
+              {/* {cart.qty.length > 1 ? (
+                 <Col
+                 xs={3}
+                 md={3}
+                 className="d-flex justify-content-end align-items-center"
+                 style={{ marginTop: '2%' }}
+               >
+                <Button variant="outline-warning" style={{ marginRight: '10px' }}>
+                <AiOutlineLine />
+              </Button>
+
+              <p style={{ marginTop: '15%', marginRight: '10px' }}>{products.qty}</p>
+              <Button variant="outline-warning">
+                <BsPlus />
+              </Button>
+              </Col>
+              ): (
+                <Col
+                xs={3}
+                md={3}
+                className="d-flex justify-content-end align-items-center"
+                style={{ marginTop: '2%' }}
+              >
+              <Button variant="outline-warning">
+                <RiDeleteBin6Line/>
+              </Button>
+
+              <p style={{ marginTop: '15%', marginRight: '10px' }}>{products.qty}</p>
+              <Button variant="outline-warning">
+                <BsPlus />
+              </Button>
+              </Col>
+            
+              )}
+              */}
+             
+            
           </ListGroup.Item>
         ))}
       </ListGroup>
