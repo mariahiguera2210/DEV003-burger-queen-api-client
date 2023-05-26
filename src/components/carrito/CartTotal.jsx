@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 
 function CartTotal() {
   const { cart } = useContext(CartContext);
-  const total = cart.reduce((acc, el) => acc + el.price, 0);
+  const total = cart.reduce((acc, el) => acc + el.price * el.qty, 0);
 
   return (
     <Container>

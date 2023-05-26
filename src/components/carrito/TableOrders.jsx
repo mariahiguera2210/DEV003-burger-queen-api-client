@@ -29,7 +29,7 @@ function TableOrders() {
               <p style={{ marginBottom: '3px', fontSize: '15px',  fontFamily: "'Lilita One', cursive"  }}>
                 {products.name}
               </p>
-              <p style={{ marginBottom: '3px', fontSize: '13px' }}>${products.price}</p>
+              <p style={{ marginBottom: '3px', fontSize: '13px' }}>${products.price * products.qty}</p>
             </Col>
 
             <Col
