@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import TableClient from '../TableClient';
+import CartTotal from './CartTotal';
 import TableOrders from './TableOrders';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useState } from 'react';
@@ -22,7 +22,7 @@ function ShoppingCart() {
         <AiOutlineShoppingCart />
       </Button>
       <Modal show={show} onHide={handleClose} dialogClassName="custom-modal">
-        <Modal.Header closeButton>
+        <Modal.Header closeButton style={{ fontFamily: "'Lilita One', cursive"}}>
           <Modal.Title>Orden</Modal.Title>
         </Modal.Header>
 
@@ -35,7 +35,7 @@ function ShoppingCart() {
              orders={orders}
              products={products}
             />
-  
+            <CartTotal/>
           </Modal.Body>
         ) : (
           <Modal.Body>
@@ -45,9 +45,6 @@ function ShoppingCart() {
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancelar
-          </Button>
-          <Button variant="warning" onClick={handleClose}>
-           Enviar orden
           </Button>
         </Modal.Footer>
       </Modal>
