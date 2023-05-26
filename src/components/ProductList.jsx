@@ -8,7 +8,7 @@ import { CartContext } from './carrito/CartContext';
 
 const ProductList = ({ product, setProducts }) => {
   const navigate = useNavigate();
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, buyProducts } = useContext(CartContext);
 
   const addProduct = () => {
     const token = localStorage.getItem('sesionToken');
@@ -32,9 +32,7 @@ const ProductList = ({ product, setProducts }) => {
       .catch((error) => console.error(error));
   };
 
-  const buyProducts = (product) => {
-    setCart([...cart, product]);
-  };
+
 
   return (
     <Container>

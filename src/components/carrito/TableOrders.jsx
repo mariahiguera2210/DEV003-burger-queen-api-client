@@ -6,9 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { AiOutlineLine } from 'react-icons/ai';
-import { RiDeleteBin6Line } from 'react-icons/ri';
 import { BsPlus } from 'react-icons/bs';
 import { CartContext } from './CartContext';
+import CartCounter from './CartCounter';
 
 function TableOrders() {
   const { cart } = useContext(CartContext);
@@ -38,52 +38,9 @@ function TableOrders() {
                  className="d-flex justify-content-end align-items-center"
                  style={{ marginTop: '2%' }}
                >
-                <Button variant="outline-warning" style={{ marginRight: '10px' }}>
-                <AiOutlineLine />
-              </Button>
+                <CartCounter products={products} qty={products.qty}/>
+               </Col>
 
-              <p style={{ marginTop: '15%', marginRight: '10px' }}>{products.qty}</p>
-              <Button variant="outline-warning">
-                <BsPlus />
-              </Button>
-              </Col>
-
-
-              {/* {cart.qty.length > 1 ? (
-                 <Col
-                 xs={3}
-                 md={3}
-                 className="d-flex justify-content-end align-items-center"
-                 style={{ marginTop: '2%' }}
-               >
-                <Button variant="outline-warning" style={{ marginRight: '10px' }}>
-                <AiOutlineLine />
-              </Button>
-
-              <p style={{ marginTop: '15%', marginRight: '10px' }}>{products.qty}</p>
-              <Button variant="outline-warning">
-                <BsPlus />
-              </Button>
-              </Col>
-              ): (
-                <Col
-                xs={3}
-                md={3}
-                className="d-flex justify-content-end align-items-center"
-                style={{ marginTop: '2%' }}
-              >
-              <Button variant="outline-warning">
-                <RiDeleteBin6Line/>
-              </Button>
-
-              <p style={{ marginTop: '15%', marginRight: '10px' }}>{products.qty}</p>
-              <Button variant="outline-warning">
-                <BsPlus />
-              </Button>
-              </Col>
-            
-              )}
-              */}
              
             
           </ListGroup.Item>
