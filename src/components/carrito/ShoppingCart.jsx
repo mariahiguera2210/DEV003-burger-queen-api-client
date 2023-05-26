@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import TableClient from '../TableClient';
+import CartTotal from './CartTotal';
 import TableOrders from './TableOrders';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useState } from 'react';
@@ -35,7 +35,7 @@ function ShoppingCart() {
              orders={orders}
              products={products}
             />
-  
+            <CartTotal/>
           </Modal.Body>
         ) : (
           <Modal.Body>
